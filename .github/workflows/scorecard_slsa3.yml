@@ -40,7 +40,7 @@ jobs:
     permissions:
       id-token: write # For signing.
       contents: write # For asset uploads.
-      # actions: read # For the entrypoint.
+      actions: read # For the entrypoint.
     uses: slsa-framework/slsa-github-generator/.github/workflows/delegator_lowperms-generic_slsa3.yml@v1.6.0
     with:
       slsa-token: ${{ needs.slsa-setup.outputs.slsa-token }}
