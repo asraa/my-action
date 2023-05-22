@@ -26,7 +26,7 @@ jobs:
       - name: Generate the token
         id: generate
         # TODO(github.com/ianlewis/slsa-byob-template/issues/11): Update version once released.
-        uses: slsa-framework/slsa-github-generator/actions/delegator/setup-token@main
+        uses: slsa-framework/slsa-github-generator/actions/delegator/setup-token@v1.6.0
         with:
           slsa-workflow-recipient: 'delegator_lowperms-generic_slsa3.yml'
           slsa-rekor-log-public: ${{ inputs.rekor-log-public }}
