@@ -7,24 +7,6 @@ on:
     # NOTE: You need to maintain the defaults here as well as your main
     # action.yml
     inputs:
-      # TODO: Update the inputs for your workflow.
-      # In most cases, thes should mirror your action's inputs.
-      message:
-        required: false
-        type: string
-        description: 'The message'
-        default: 'Hello World!'
-      file:
-        required: false
-        type: string
-        description: 'File name to write the message to.'
-        default: 'message.txt'
-      version:
-        required: false
-        type: string
-        description: 'Version of figure to use.'
-        default: 'v0.0.2'
-
       # NOTE: the additional inputs below are to support additional
       # functionality of the workflow.
       rekor-log-public:
@@ -32,12 +14,6 @@ on:
         required: false
         type: boolean
         default: false
-
-    # TODO: Add secrets if necessary.
-    # secrets:
-    #   hoge:
-    #     required: true
-    #     description: "lorem ipsum"
 
 jobs:
   slsa-setup:
@@ -69,10 +45,7 @@ jobs:
     uses: slsa-framework/slsa-github-generator/.github/workflows/delegator_generic_slsa3.yml@v1.6.0
     with:
       slsa-token: ${{ needs.slsa-setup.outputs.slsa-token }}
-    # TODO: Set secrets if necessary.
-    # secrets:
-    #   secret1: ${{ secrets.github-token }}
-    #   secret2: ${{ secrets.mysecret }}
+
 
   slsa-publish:
     needs: [slsa-run]
