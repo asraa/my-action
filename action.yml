@@ -1,9 +1,6 @@
 # action.yaml
 name: "My Custom Github Action that runs OSSF Scorecard"
-description: "Call an API and get the result"
-outputs:
-  pokemon_name:
-    description: "Name des Pokemons"
+description: "Call Scorecard Action and upload result"
 runs:
   using: "composite"
   steps:
@@ -23,6 +20,6 @@ runs:
     - name: "Upload artifact"
       uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
       with:
-        name: SARIF file
+        name: results.sarif
         path: results.sarif
         retention-days: 5
